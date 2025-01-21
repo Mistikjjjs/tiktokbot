@@ -54,7 +54,8 @@ def bot_view_stream(url, interval, proxy_pool, bot_id):
                 print(f"Solicitando {url} - Estado: {response.status_code} - Usando Proxy: {proxy} - Bot {bot_id}:1")
             except requests.exceptions.RequestException as e:
                 print(f"Error al realizar la solicitud: {e} - Usando Proxy: {proxy} - Bot {bot_id}:-1")
-            
+                time.sleep(5)  # Espera 5 segundos antes de intentar con el siguiente proxy
+
             # Esperar el intervalo especificado
             time.sleep(interval)
     
